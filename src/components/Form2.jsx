@@ -27,7 +27,7 @@ const Form2 = () => {
         dispatch(sendConfirmationMail())
         setTimeout(() => {
           navigate("/")
-          toast.success("Flight booked, Confirmation mail will be sent to your email.")
+          toast.success("Booking confirmed, Confirmation mail will be sent to your email.")
         },2500)
       }}>
         <div>

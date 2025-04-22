@@ -35,6 +35,7 @@ const App = () => {
           theme="light"
           transition={Zoom}
           type="success"
+          style={{padding: "2px"}}
         />
       </div>
     </div>
