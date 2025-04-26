@@ -9,7 +9,7 @@ const FlightSearch = () => {
   const dispatch = useDispatch()
 
   return (
-    <div className="min-h-screen bg-sky-300 to-white">
+    <div className="min-h-screen bg-sky-200">
       <div className="container mx-auto px-4 py-8">
         <button className="rounded-lg bg-gray-200 mb-8 font-semibold text-sky-600">
           <Link to="/" className="flex items-center justify-center p-4">

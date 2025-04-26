@@ -22,7 +22,7 @@ const FlightBooking = () => {
   }, [flight]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-sky-400 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-sky-300 to-white">
       <div className="container mx-auto px-4 py-8">
         <button className="rounded-lg bg-gray-200 mb-8 font-semibold text-sky-600">
           <Link
