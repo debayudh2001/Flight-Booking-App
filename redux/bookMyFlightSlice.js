@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import { toast } from "react-toastify";
 
 export const fetchFlights = createAsyncThunk(
     'bookMyFlight/fetchFlights',
@@ -79,13 +80,13 @@ const bookMyFlightSlice = createSlice({
             })
             .addCase(fetchFlights.rejected, (state, action) => {
                 state.loading = false;
-                console.log(action.payload)
+                toast.error('Error occured while fetching flights')
             })
             .addCase(sendConfirmationMail.fulfilled, (state, action) => {
                 console.log("Flight booked successfully")
             })
             .addCase(sendConfirmationMail.rejected, (state, action) => {
-                console.log(action.payload)
+                toast.error('Error occured while sending the confirmation mail')
             })
     }
 })

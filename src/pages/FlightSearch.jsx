@@ -4,9 +4,9 @@ import Flight from "../components/Flight";
 import { useDispatch, useSelector } from "react-redux";
 
 const FlightSearch = () => {
-  const flights = useSelector((state) => state.bookMyFlight.flights)
-  const loading = useSelector((state) => state.bookMyFlight.loading)
-  const dispatch = useDispatch()
+  const flights = useSelector((state) => state.bookMyFlight.flights);
+  const loading = useSelector((state) => state.bookMyFlight.loading);
+  const dispatch = useDispatch();
 
   return (
     <div className="min-h-screen bg-sky-200">
@@ -17,12 +17,16 @@ const FlightSearch = () => {
             <span>Go Back</span>
           </Link>
         </button>
-        <h2 className="text-2xl font-semibold mb-6 text-sky-700">Available Flights</h2>
-        {loading ? 
-            <p className="font-semibold text-sky-700">Loading ...</p>
-            :
-            flights.map(flight => <Flight key={flight.id} flight={flight} />)
-        }
+        <h2 className="text-2xl font-semibold mb-6 text-sky-700">
+          Available Flights
+        </h2>
+        {loading ? (
+          <p className="font-semibold text-sky-700">Loading ...</p>
+        ) : flights.length === 0 ? (
+          <p className="font-semibold text-sky-700">No data found</p>
+        ) : (
+          flights.map((flight) => <Flight key={flight.id} flight={flight} />)
+        )}
       </div>
     </div>
   );

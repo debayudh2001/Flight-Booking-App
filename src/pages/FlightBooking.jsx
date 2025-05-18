@@ -39,7 +39,7 @@ const FlightBooking = () => {
         <BookingSummary flight={flight} passengers={passengers} date={date} cabinClass={cabinClass} totalPrice={totalPrice} />
         <br />
         <br />
-        <Form2 />
+        <Form2 totalPrice={totalPrice} />
       </div>
     </div>
   );
