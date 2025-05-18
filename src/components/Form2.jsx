@@ -32,7 +32,7 @@ const Form2 = ({ totalPrice }) => {
           toast.success(
             "Payment successful! Booking confirmed. Confirmation mail will be sent to your email."
           );
-        }, 2500);
+        }, 1500);
       }
     } catch (err) {
       toast.error(err.message || "Payment failed. Please try again.");
