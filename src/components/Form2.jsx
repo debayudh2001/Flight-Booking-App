@@ -27,12 +27,18 @@ const Form2 = ({ totalPrice }) => {
       const paymentResponse = await initializeRazorpay(totalPrice, userDetails);
       if (paymentResponse.razorpay_payment_id) {
         dispatch(sendConfirmationMail());
-        setTimeout(() => {
-          navigate("/");
-          toast.success(
-            "Payment successful! Booking confirmed. Confirmation mail will be sent to your email."
-          );
-        }, 1500);
+        // setTimeout(() => {
+        //   navigate("/");
+        //   toast.success(
+        //     "Payment successful! Booking confirmed. Confirmation mail will be sent to your email."
+        //   );
+        // }, 1500);
+        toast.success(
+          "Payment successful! Booking confirmed. Confirmation mail will be sent to your email."
+        );
+        name.current.value = "";
+        email.current.value = "";
+        number.current.value = "";
       }
     } catch (err) {
       toast.error(err.message || "Payment failed. Please try again.");

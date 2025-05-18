@@ -10,6 +10,7 @@ export const initializeRazorpay = (orderAmount, userDetails) => {
             theme: {
                 color: '#0284c7'
             },
+            callback_url: 'https://flight-booking-app-alpha.vercel.app',
             prefill: {
                 name: userDetails.name,
                 email: userDetails.email,
