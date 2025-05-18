@@ -17,12 +17,7 @@ export const initializeRazorpay = (orderAmount, userDetails) => {
             },
             handler: function (response) {
                 resolve(response);
-            },
-            modal: {
-                ondismiss: function () {
-                    reject("Payment cancelled");
-                },
-            },
+            }
         };
 
         const rzp = new window.Razorpay(options);
