@@ -32,10 +32,7 @@ const Form2 = ({ totalPrice }) => {
           toast.success(
             "Payment successful! Booking confirmed. Confirmation mail will be sent to your email."
           );
-        }, 1000);
-        toast.success(
-          "Payment successful! Booking confirmed. Confirmation mail will be sent to your email."
-        );
+        }, 900);
         name.current.value = "";
         email.current.value = "";
         number.current.value = "";
