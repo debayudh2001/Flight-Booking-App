@@ -7,6 +7,9 @@ export const initializeRazorpay = (orderAmount, userDetails) => {
             currency: "INR",
             name: "BookMyFlight",
             description: "Flight Ticket Payment",
+            theme: {
+                color: '#0284c7'
+            },
             prefill: {
                 name: userDetails.name,
                 email: userDetails.email,
