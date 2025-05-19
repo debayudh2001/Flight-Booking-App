@@ -3,7 +3,7 @@ export const initializeRazorpay = (orderAmount, userDetails) => {
     return new Promise((resolve, reject) => {
         const options = {
             key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-            amount: orderAmount * 100, 
+            amount: orderAmount * 100,
             currency: "INR",
             name: "BookMyFlight",
             description: "Flight Ticket Payment",
@@ -20,7 +20,7 @@ export const initializeRazorpay = (orderAmount, userDetails) => {
             }
         };
         const rzp = new Razorpay(options);
-        rzp.on('payment.failed', (response) => {
+        rzp.on('payment.failed', function response() {
             reject(response.error.reason)
         })
         rzp.open();
