@@ -20,7 +20,7 @@ export const initializeRazorpay = (orderAmount, userDetails) => {
             }
         };
         const rzp = new Razorpay(options);
-        rzp.on('payment.failed', function response() {
+        rzp.on('payment.failed', function (response) {
             reject(response.error.reason)
         })
         rzp.open();
