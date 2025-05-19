@@ -19,8 +19,10 @@ export const initializeRazorpay = (orderAmount, userDetails) => {
                 resolve(response);
             }
         };
-
         const rzp = new Razorpay(options);
+        rzp.on('payment.failed', (response) => {
+            reject(response.error.reason)
+        })
         rzp.open();
     });
 };
