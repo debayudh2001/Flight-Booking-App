@@ -20,7 +20,7 @@ export const initializeRazorpay = (orderAmount, userDetails) => {
             }
         };
 
-        const rzp = new window.Razorpay(options);
+        const rzp = new Razorpay(options);
         rzp.open();
     });
 };
