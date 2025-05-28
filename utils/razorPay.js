@@ -24,6 +24,10 @@ export const initializeRazorpay = (orderAmount, userDetails) => {
             reject(response.error.reason)
             rzp.close()
         })
+        rzp.on('payment.cancel', function() {
+            reject("Payment cancelled");
+            rzp.close();
+        });
         rzp.open();
     });
 };

@@ -38,7 +38,7 @@ const Form2 = ({ totalPrice }) => {
         number.current.value = "";
       }
     } catch (err) {
-      toast.error(err.message || "Payment failed. Please try again.");
+      toast.error(err || "Payment failed. Please try again.");
     }
   }
 

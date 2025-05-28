@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useMemo } from "react";
 import Form2 from "../components/Form2";
 import BookingSummary from "../components/BookingSummary";
+import { ToastContainer, Zoom } from "react-toastify";
 
 const FlightBooking = () => {
   const flight = useSelector((state) => state.bookMyFlight.selectedFlight);
@@ -36,11 +37,32 @@ const FlightBooking = () => {
         <h2 className="text-2xl font-semibold mb-6 text-sky-700">
           Complete Your Booking
         </h2>
-        <BookingSummary flight={flight} passengers={passengers} date={date} cabinClass={cabinClass} totalPrice={totalPrice} />
+        <BookingSummary
+          flight={flight}
+          passengers={passengers}
+          date={date}
+          cabinClass={cabinClass}
+          totalPrice={totalPrice}
+        />
         <br />
         <br />
         <Form2 totalPrice={totalPrice} />
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Zoom}
+        type="success"
+        style={{ padding: "2px" }}
+      />
     </div>
   );
 };
