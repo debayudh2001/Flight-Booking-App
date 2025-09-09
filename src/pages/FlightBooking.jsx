@@ -60,7 +60,7 @@ const FlightBooking = () => {
         pauseOnHover
         theme="light"
         transition={Zoom}
-        type="success"
+        type="error"
         style={{ padding: "2px" }}
       />
     </div>
