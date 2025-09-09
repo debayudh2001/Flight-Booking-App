@@ -11,7 +11,7 @@ const FlightSearch = () => {
   
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const [flightsPerPage] = useState(10);
+  const [flightsPerPage] = useState(5); // Changed from 10 to 5 flights per page
   
   // Calculate total pages
   const totalPages = flights ? Math.ceil(flights.length / flightsPerPage) : 0;
