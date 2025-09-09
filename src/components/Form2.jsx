@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   sendConfirmationMail,
   updateUserCredentialsFormData,
+  setNotification
 } from "../../redux/bookMyFlightSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -27,17 +28,20 @@ const Form2 = ({ totalPrice }) => {
       const paymentResponse = await initializeRazorpay(totalPrice, userDetails);
       if (paymentResponse.razorpay_payment_id) {
         dispatch(sendConfirmationMail());
+        // Set notification in Redux for success (to be shown on home page)
+        dispatch(setNotification({
+          type: "success",
+          message: "Payment successful! Booking confirmed. Confirmation mail will be sent to your email."
+        }));
         setTimeout(() => {
           navigate("/");
-          toast.success(
-            "Payment successful! Booking confirmed. Confirmation mail will be sent to your email."
-          );
         }, 800);
         name.current.value = "";
         email.current.value = "";
         number.current.value = "";
       }
     } catch (err) {
+      // Show error toast directly on the FlightBooking page
       toast.error(err || "Payment failed. Please try again.");
     }
   }

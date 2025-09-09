@@ -1,14 +1,31 @@
 import { useEffect } from "react";
 import Form from "./components/Form";
 import emailjs from "@emailjs/browser";
-import { ToastContainer, Zoom } from "react-toastify";
+import { ToastContainer, Zoom, toast } from "react-toastify";
+import { useSelector, useDispatch } from "react-redux";
+import { clearNotification } from "../redux/bookMyFlightSlice";
 
 const App = () => {
+  const notification = useSelector((state) => state.bookMyFlight.notification);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     emailjs.init({
       publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
     });
   }, []);
+
+  useEffect(() => {
+    if (notification) {
+      if (notification.type === "success") {
+        toast.success(notification.message);
+      } else if (notification.type === "error") {
+        toast.error(notification.message);
+      }
+      // Clear the notification after showing it
+      dispatch(clearNotification());
+    }
+  }, [notification, dispatch]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-400 to-white">

@@ -59,7 +59,8 @@ const bookMyFlightSlice = createSlice({
         loading: true,
         searchFlightFormData: null,
         selectedFlight: null,
-        userCredentialsFormData: null
+        userCredentialsFormData: null,
+        notification: null
     },
     reducers: {
         updateSearchFlightFormData: (state, action) => {
@@ -70,6 +71,12 @@ const bookMyFlightSlice = createSlice({
         },
         updateUserCredentialsFormData: (state, action) => {
             state.userCredentialsFormData = action.payload
+        },
+        setNotification: (state, action) => {
+            state.notification = action.payload
+        },
+        clearNotification: (state) => {
+            state.notification = null
         }
     },
     extraReducers: (builder) => {
@@ -91,6 +98,12 @@ const bookMyFlightSlice = createSlice({
     }
 })
 
-export const { updateSearchFlightFormData, setSelectedFlight, updateUserCredentialsFormData } = bookMyFlightSlice.actions
+export const { 
+    updateSearchFlightFormData, 
+    setSelectedFlight, 
+    updateUserCredentialsFormData,
+    setNotification,
+    clearNotification 
+} = bookMyFlightSlice.actions
 
 export default bookMyFlightSlice.reducer
